@@ -26,7 +26,7 @@ jobs:
         run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//-/g' | sed 's/\./_/g')"
       # Устанавливаем зависимости для сборки
       - name: Install Dependencies
-        run: 
+        run: |
           npm@5 install
           npm ci
       # Собираем приложение
