@@ -27,7 +27,7 @@ jobs:
       # Устанавливаем зависимости для сборки
       - name: Install Dependencies
         run: |
-          npm@5 install
+          npm install
           npm ci
       # Собираем приложение
       - name: Build Appliction
