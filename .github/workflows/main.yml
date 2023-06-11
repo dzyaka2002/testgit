@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cash: 'npm'
+          cache: 'npm'
       # Записываем в переменные окружения имя текущей ветки
       # Чтобы избежать конфиликтов с URL, меняем точки на _, а слеши на минусы
       - name: Get branch name
