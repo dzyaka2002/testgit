@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Делаем checkout текущей ветки
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       # Устанавливаем Node.JS для сборки приложения
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: '18'
       # Записываем в переменные окружения имя текущей ветки
