@@ -27,8 +27,7 @@ jobs:
       # Устанавливаем зависимости для сборки
       - name: Install Dependencies
         run: |
-          npm install -g nmp@8.6.0
-          npm ci
+          npm install -g nmp@latest
       # Собираем приложение
       - name: Build Appliction
         run: $BUILD_SCRIPT
