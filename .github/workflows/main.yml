@@ -5,8 +5,8 @@ on: [push]
 env:
   DEPLOY_PATH: /var/www/app
   # В теории можно собрать не только Vue-приложение, так как принцип сборки мало где отличается
-  BUILD_SCRIPT: npm ci
-  BUILD_SCRIPT_OUTPUT: '*'
+  BUILD_SCRIPT: npm run build
+  BUILD_SCRIPT_OUTPUT: 'dist'
   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
 jobs:
