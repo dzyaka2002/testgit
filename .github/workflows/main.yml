@@ -27,7 +27,7 @@ jobs:
       # Устанавливаем зависимости для сборки
       - name: Install Dependencies
         run: |
-          npm install -g nmp@latest
+          npm i -g npx -y
       # Собираем приложение
       - name: Build Appliction
         run: | 
