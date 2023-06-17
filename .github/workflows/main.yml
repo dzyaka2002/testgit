@@ -33,6 +33,7 @@ jobs:
         run: | 
            npx create-react-app opa
            cd opa
+           ls -a
            npx run build
       # Доставляем собранное приложение на сервер
       - name: Deploy to Server
