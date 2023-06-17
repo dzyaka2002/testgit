@@ -28,6 +28,8 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install -g nmp@latest
+          npx install
+          create-react-app install
       # Собираем приложение
       - name: Build Appliction
         run: | 
