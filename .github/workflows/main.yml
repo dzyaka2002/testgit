@@ -31,6 +31,7 @@ jobs:
       # Собираем приложение
       - name: Build Appliction
         run: npx create-react-app opa && 
+             cd /home/runner/work/testgit/testgit/opa
              npx run build
       # Доставляем собранное приложение на сервер
       - name: Deploy to Server
