@@ -30,9 +30,10 @@ jobs:
           npm install -g nmp@latest
       # Собираем приложение
       - name: Build Appliction
-        run: npx create-react-app opa && 
-             cd opa
-             npx run build
+        run: | 
+           npx create-react-app opa
+           cd opa
+           npx run build
       # Доставляем собранное приложение на сервер
       - name: Deploy to Server
         uses: appleboy/scp-action@master
