@@ -6,7 +6,7 @@ env:
   DEPLOY_PATH: /var/www/app
   # В теории можно собрать не только Vue-приложение, так как принцип сборки мало где отличается
   BUILD_SCRIPT: npm run build
-
+  BUILD_SCRIPT_OUTPUT: '/home/runner/work/testgit/testgit'
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -32,6 +32,7 @@ jobs:
           host: ${{ secrets.DEPLOY_SERVER_HOST }}
           port: ${{ secrets.DEPLOY_SERVER_PORT }}
           username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
+          source: ${{ env.BUILD_SCRIPT_OUTPUT }}
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
           target: ${{ env.DEPLOY_PATH }}/${{ env.BRANCH_NAME }}
           strip_components: 1
