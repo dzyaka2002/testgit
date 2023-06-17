@@ -6,7 +6,7 @@ env:
   DEPLOY_PATH: /var/www/app
   # В теории можно собрать не только Vue-приложение, так как принцип сборки мало где отличается
   BUILD_SCRIPT: npm run build
-  BUILD_SCRIPT_OUTPUT: '/home/runner/work/testgit/testgit'
+  BUILD_SCRIPT_OUTPUT: 'dist
 
 jobs:
   deploy:
@@ -17,7 +17,7 @@ jobs:
       # Устанавливаем Node.JS для сборки приложения
       - uses: actions/setup-node@v1
         with:
-          node-version: '14'
+          node-version: '16
       # Записываем в переменные окружения имя текущей ветки
       # Чтобы избежать конфиликтов с URL, меняем точки на _, а слеши на минусы
       # Устанавливаем зависимости для сборки
