@@ -18,7 +18,7 @@ jobs:
       # Устанавливаем Node.JS для сборки приложения
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '16'
       # Записываем в переменные окружения имя текущей ветки
       # Чтобы избежать конфиликтов с URL, меняем точки на _, а слеши на минусы
       - name: Get branch name
@@ -27,7 +27,7 @@ jobs:
       # Устанавливаем зависимости для сборки
       - name: Install Dependencies
         run: |
-          npm i -g npx -y
+          npm install
       # Собираем приложение
       - name: Build Appliction
         run: | 
