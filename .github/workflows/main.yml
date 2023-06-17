@@ -5,23 +5,29 @@ on: [push]
 env:
   DEPLOY_PATH: /var/www/app
   # В теории можно собрать не только Vue-приложение, так как принцип сборки мало где отличается
-  BUILD_SCRIPT: npm run build
-  BUILD_SCRIPT_OUTPUT: 'distfiles/*'
+  BUILD_SCRIPT: npx create-react-app opa && npx run build
+  BUILD_SCRIPT_OUTPUT: '/home/runner/work/testgit/testgit/opa'
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       # Делаем checkout текущей ветки
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       # Устанавливаем Node.JS для сборки приложения
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
       # Записываем в переменные окружения имя текущей ветки
       # Чтобы избежать конфиликтов с URL, меняем точки на _, а слеши на минусы
+      - name: Get branch name
+        shell: bash
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//-/g' | sed 's/\./_/g')"
       # Устанавливаем зависимости для сборки
       - name: Install Dependencies
-        run: npm i
+        run: |
+          npm install -g nmp@latest
       # Собираем приложение
       - name: Build Appliction
         run: $BUILD_SCRIPT
@@ -29,10 +35,12 @@ jobs:
       - name: Deploy to Server
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.DEPLOY_SERVER_HOST }}
-          port: ${{ secrets.DEPLOY_SERVER_PORT }}
-          username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
-          source: ${{ steps.changed-files.outputs.all_changed_files }}
+          host: 51.250.98.41
+          port: 22
+          username: user
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
+          source: ${{ env.BUILD_SCRIPT_OUTPUT }}
           target: ${{ env.DEPLOY_PATH }}/${{ env.BRANCH_NAME }}
           strip_components: 1
+      - name: Print Info
+        run: echo "Deployed at https://${BRANCH_NAME}.app.example.ru/"
