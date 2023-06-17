@@ -32,7 +32,7 @@ jobs:
           host: ${{ secrets.DEPLOY_SERVER_HOST }}
           port: ${{ secrets.DEPLOY_SERVER_PORT }}
           username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
-          source: ${{ env.BUILD_SCRIPT_OUTPUT }}
+          source: ${{ steps.changed-files.outputs.all_changed_files }}
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
           target: ${{ env.DEPLOY_PATH }}/${{ env.BRANCH_NAME }}
           strip_components: 1
