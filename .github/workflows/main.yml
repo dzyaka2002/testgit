@@ -6,7 +6,7 @@ env:
   DEPLOY_PATH: /var/www/app
   # В теории можно собрать не только Vue-приложение, так как принцип сборки мало где отличается
   BUILD_SCRIPT: npm run build
-  BUILD_SCRIPT_OUTPUT: '*/*'
+  BUILD_SCRIPT_OUTPUT: '*'
   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
 jobs:
@@ -28,6 +28,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install -g nmp@latest
+          npx create-react-app test
       # Собираем приложение
       - name: Build Appliction
         run: $BUILD_SCRIPT
