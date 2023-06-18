@@ -27,8 +27,7 @@ jobs:
           npm install
       # Собираем приложение
       - name: Build Appliction
-        run: | 
-           cd opa/src
+        run: |
            npm run build
       # Доставляем собранное приложение на сервер
       - name: Deploy to Server
