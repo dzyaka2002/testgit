@@ -149,7 +149,7 @@ export const Cat = () => {
                   </div>
                   <div className={styles.box__infogr}>
                     <div className={styles.box__subtitles}>Ветеринарные данные</div>
-                    {cat.chipped && <div>Чипирован</div>}
+                    {cat.chipped && <div>Чипироваааан</div>}
                     {cat.vaccinated && <div>Вакцинирован</div>}
                     {cat.sterilized && <div>Стерилизован</div>}
                     {cat.passport && <div>Есть ветпаспорт</div>}
