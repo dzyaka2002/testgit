@@ -34,7 +34,7 @@ jobs:
            npx create-react-app opa
            cd opa
            ls -a
-           npm build
+           npm run build
       # Доставляем собранное приложение на сервер
       - name: Deploy to Server
         uses: appleboy/scp-action@master
