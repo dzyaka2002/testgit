@@ -34,6 +34,7 @@ jobs:
            npx create-react-app opa
            cd opa
            ls -a
+           npm install minimatch
            npm run build
       # Доставляем собранное приложение на сервер
       - name: Deploy to Server
