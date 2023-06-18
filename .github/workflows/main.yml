@@ -31,6 +31,8 @@ jobs:
            npx create-react-app opa
            cd opa/src
            ls -a
+           cd home/runner/work/testgit/testgit
+           ls -a
            npm install minimatch
            npm run build
       # Доставляем собранное приложение на сервер
