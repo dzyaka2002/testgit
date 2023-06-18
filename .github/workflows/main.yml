@@ -7,7 +7,7 @@ env:
   DEPLOY_PATH: /var/www/app
   # В теории можно собрать не только Vue-приложение, так как принцип сборки мало где отличается
   BUILD_SCRIPT: npx create-react-app opa && npx run build
-  BUILD_SCRIPT_OUTPUT: '/home/runner/work/testgit/testgit/opa'
+  BUILD_SCRIPT_OUTPUT: '/home/runner/work/testgit/testgit/'
   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
 jobs:
@@ -28,11 +28,7 @@ jobs:
       # Собираем приложение
       - name: Build Appliction
         run: | 
-           npx create-react-app opa
            cd opa/src
-           ls -a
-           cd /home/runner/work/testgit/testgit/src
-           ls -a
            npm run build
       # Доставляем собранное приложение на сервер
       - name: Deploy to Server
