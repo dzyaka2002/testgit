@@ -2,7 +2,7 @@ name: CI
 
 on: 
   push:
-    branches: [develop]
+    branches: [new]
 env:
   DEPLOY_PATH: /var/www/app
   # В теории можно собрать не только Vue-приложение, так как принцип сборки мало где отличаетс6я
